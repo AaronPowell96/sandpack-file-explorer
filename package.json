@@ -23,7 +23,7 @@
     "type-check": "tsc --noEmit",
     "lint": "eslint --ignore-path .gitignore \"{src,tests}/**/*.+(ts|js|tsx)\"",
     "lint:fix": "yarn lint --fix && prettier --write .",
-    "test": "jest --coverage",
+    "test": "jest --coverage --passWithNoTests",
     "test:ci": "yarn test --ci",
     "test:watch": "jest --watch",
     "prepare": "husky install",
