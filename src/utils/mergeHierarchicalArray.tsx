@@ -3,8 +3,8 @@ import {
   findParentPath,
   flattenObject,
   removeHiddenEntries,
-} from ".";
-import type { Item, SandpackBundlerFiles } from "../types";
+} from '.';
+import type { Item, SandpackBundlerFiles } from '../types';
 
 export function mergeHierarchicalArray(
   sandpackFiles: SandpackBundlerFiles,
@@ -25,20 +25,20 @@ export function mergeHierarchicalArray(
     //   sandpack.files[`${item.data.path}`]?.code
     // );
     // add the item to the object
-    if (item.parent === "0") {
+    if (item.parent === '0') {
       // the item is a root node
       // console.log(item.path, sandpack.files);
       if (sandpackFiles[`${item?.data?.path}`]?.code !== undefined) {
         obj[`/${item.text}`] = sandpackFiles[`${item?.data?.path}`]?.code;
       } else {
-        obj[`/${item.text}/`] = ".hiddenDir";
+        obj[`/${item.text}/`] = '.hiddenDir';
       }
       item.data.path = `/${item.text}`;
     } else {
       // find the parent node in the object and add the item as a child
       let parentPath: string = findParentPath(
         obj,
-        arr.find(({ id }) => id === item.parent)?.text || ""
+        arr.find(({ id }) => id === item.parent)?.text || ''
       );
       let builtPath = buildPath(item, arr);
       // arr.find(({ id }) => id === item.parent)?.text || "";

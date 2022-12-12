@@ -1,7 +1,7 @@
-import type { Item } from "../types";
+import type { Item } from '../types';
 
 export const buildPath = (item: Item, arr: Item[]) => {
-  let path = "";
+  let path = '';
 
   // Recursively build the path by looking for the parent of the current item
   let parent = arr.find(({ id }) => id === item.parent);

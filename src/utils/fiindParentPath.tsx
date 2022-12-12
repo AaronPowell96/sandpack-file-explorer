@@ -7,5 +7,5 @@ export function findParentPath(
       return key;
     }
   }
-  return "";
+  return '';
 }

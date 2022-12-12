@@ -1,4 +1,4 @@
-import type { SandpackBundlerFiles } from "../types";
+import type { SandpackBundlerFiles } from '../types';
 
 export function deepMerge(
   files: SandpackBundlerFiles,
@@ -14,7 +14,7 @@ export function deepMerge(
     if (!result[prop]) {
       result[prop] = {};
     }
-    if (typeof obj2[prop] === "object") {
+    if (typeof obj2[prop] === 'object') {
       // If the objects being merged are empty, return null instead of calling deepMerge()
       if (
         Object.keys(obj1?.[prop] || {})?.length === 0 &&

@@ -1,4 +1,4 @@
-import type { SandpackBundlerFiles } from "../types";
+import type { SandpackBundlerFiles } from '../types';
 
 export const deleteKeys = (
   obj: Record<string, string> | SandpackBundlerFiles,
