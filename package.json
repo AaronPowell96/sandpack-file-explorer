@@ -152,6 +152,7 @@
   },
   "dependencies": {
     "@minoru/react-dnd-treeview": "^3.4.0",
+    "@types/uuid": "9.0.0",
     "react-dnd": "^16.0.1",
     "uuid": "^9.0.0"
   }
