@@ -9,7 +9,6 @@ on:
 
 jobs:
   publish-storybook:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,6 +16,7 @@ jobs:
         with:
           node-version: lts/*
       - run: yarn
+      - run: yarn build-storybook
       - run: yarn deploy-storybook --ci
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
