@@ -1,7 +1,7 @@
 export function removeHiddenEntries(obj: { [key: string]: any }): void {
   for (let key in obj) {
     if (
-      (obj.hasOwnProperty(key) && obj[key] === '.hiddenDir') ||
+      (obj.hasOwnProperty(key) && obj[key]?.code === '.emptyDir') ||
       key.includes('addFile') ||
       key.includes('addDir')
     ) {

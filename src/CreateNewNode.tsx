@@ -4,11 +4,11 @@ import {
   DirectoryIconOpen,
 } from '@codesandbox/sandpack-react';
 import React from 'react';
-import { useCustomSandpack } from './CustomSandpackProvider';
+import { useSandpackFiles } from './SandpackFilesProvider';
 
 export const CreateNewNode = ({ dir }: { dir?: boolean }) => {
   const { sandpack } = useSandpack();
-  const { addFile } = useCustomSandpack();
+  const { addFile } = useSandpackFiles();
 
   return (
     <span
@@ -20,7 +20,12 @@ export const CreateNewNode = ({ dir }: { dir?: boolean }) => {
           .split('/')
           .slice(0, -1)
           .join('/');
-        addFile(`${activeSpace}/${dir ? 'addDir' : 'addFile'}`);
+        addFile({
+          [`${activeSpace}/${dir ? 'addDir' : 'addFile'}`]: {
+            code: '.emptyDir',
+            hidden: true,
+          },
+        });
       }}
     >
       {dir ? <DirectoryIconOpen /> : <FileIcon />}

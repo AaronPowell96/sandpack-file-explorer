@@ -1,6 +1,6 @@
 import type { Item } from '../types';
 
-export const buildPath = (item: Item, arr: Item[]) => {
+export const buildPath = (item: Partial<Item>, arr: Item[]) => {
   let path = '';
 
   // Recursively build the path by looking for the parent of the current item

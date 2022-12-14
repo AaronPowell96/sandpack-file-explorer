@@ -18,11 +18,9 @@ npm install sandpack-file-explorer
 yarn add sandpack-file-explorer
 ```
 
-❗Important note: This project uses [yarn](https://yarnpkg.com/) for managing dependencies.
-
 ## How do I use it?
 
-As a drop in replacement for [SandpackFileExplorer](), you can use it in any way it is used.
+As a drop in replacement for [SandpackFileExplorer](), you can use it in the same way.
 This means you must be running a custom Sandpack setup using the granular `<SandpackProvider>` and `<SandpackCodeEditor>`.
 
 ```js

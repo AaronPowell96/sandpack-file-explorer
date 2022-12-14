@@ -1,9 +1,18 @@
 import React from 'react';
-import { CustomSandpackProvider } from './CustomSandpackProvider';
-import { FileTreeExplore } from './FileTreeExplorer';
+import { SandpackFilesProvider } from './SandpackFilesProvider';
+import { FileTreeExplorer } from './FileTreeExplorer';
+export {
+  useSandpackFiles,
+  SandpackFilesProvider,
+} from './SandpackFilesProvider';
 
-export const SandpackFileExplorer = () => (
-  <CustomSandpackProvider>
+export const SandpackFileTree = () => <FileTreeExplorer />;
+
+type Props = {
+  onMoveFile?: ((fileMap: Record<string, string>) => void) | undefined;
+};
+export const SandpackFileExplorer = (props: Props) => (
+  <SandpackFilesProvider {...props}>
     <div
       style={{
         minWidth: 150,
@@ -11,9 +20,9 @@ export const SandpackFileExplorer = () => (
         overflow: 'hidden',
       }}
     >
-      <FileTreeExplore />
+      <FileTreeExplorer />
     </div>
-  </CustomSandpackProvider>
+  </SandpackFilesProvider>
 );
 
 // import React, { FC, HTMLAttributes, ReactChild } from 'react';

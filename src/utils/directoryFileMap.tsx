@@ -1,9 +1,10 @@
+import { SandpackFiles } from '@codesandbox/sandpack-react';
 import { arrayToObject, deepMerge } from '.';
 import type { SandpackBundlerFiles } from '../types';
 
 export const directoryFileMap = (
-  files: SandpackBundlerFiles | Record<string, string>,
-  overrides: Record<string, string> | string = {}
+  files: SandpackBundlerFiles | Record<string, string> | SandpackFiles,
+  overrides: Record<string, string> | string | SandpackFiles = {}
 ) => {
   // console.log("----", files, sandpack.files);
   const _overrides =

@@ -1,19 +1,17 @@
-import { v4 as uuid } from 'uuid';
 import { buildPath } from './buildPath';
 
 export const toHierarchicalArray = (
   obj: { [key: string]: any },
-  parentId = '0',
+  parentId = '/',
   arr: any[] = []
 ): any[] => {
-  // console.log("Called");
+  console.log('Called', obj);
   for (let key in obj) {
     if (obj.hasOwnProperty(key)) {
       const text = key;
-      let id = uuid();
       let builtPath = buildPath(
         {
-          id: id,
+          id: '',
           parent: parentId,
           text: text,
           droppable: false,
@@ -24,7 +22,7 @@ export const toHierarchicalArray = (
         arr
       );
       const item = {
-        id: id,
+        id: builtPath,
         parent: parentId,
         text: text,
         data: {
@@ -36,7 +34,7 @@ export const toHierarchicalArray = (
       if (typeof obj[key] === 'object' && obj[key] !== null) {
         item.droppable = true;
         arr.push(item);
-        toHierarchicalArray(obj[key], id, arr);
+        toHierarchicalArray(obj[key], builtPath, arr);
       } else {
         arr.push(item);
       }

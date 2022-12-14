@@ -1,5 +1,5 @@
 export function findParentPath(
-  obj: Record<string, string>,
+  obj: Record<string, any>,
   parentId: string
 ): string {
   for (const key in obj) {
