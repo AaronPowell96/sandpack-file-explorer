@@ -20,7 +20,7 @@ yarn add sandpack-file-explorer
 
 ## How do I use it?
 
-As a drop in replacement for [SandpackFileExplorer](), you can use it in the same way.
+As a drop in replacement for Sandpack's [FileExplorer](https://github.com/codesandbox/sandpack/tree/main/sandpack-react/src/components/FileExplorer), you can use it in the same way.
 This means you must be running a custom Sandpack setup using the granular `<SandpackProvider>` and `<SandpackCodeEditor>`.
 
 ```js
