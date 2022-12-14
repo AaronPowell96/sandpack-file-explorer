@@ -65,7 +65,6 @@ export const SandpackFilesProvider: FC<
   const [openDirs, setOpenDirs] = useState<string[]>([]);
 
   const deleteFile = async (file: string[] | string) => {
-    console.log('DELETING FILES WITH', file);
     const entryFile = JSON.parse(sandpack.files['/package.json']?.code)?.main;
     const files = typeof file === 'string' ? [file] : file;
     if (files.includes(entryFile)) {
@@ -82,9 +81,8 @@ export const SandpackFilesProvider: FC<
     // }
 
     const getAllChildrenOfDir = (dir: string, arr: Item[]) => {
-      console.log('get all children called with', dir);
       // const dirId = dir.substring(1);
-      // console.log('dirId', dirId);
+
       const children: string[] = [];
       const childrenOfDir = arr?.filter(({ parent }) => parent === dir);
 
@@ -92,9 +90,7 @@ export const SandpackFilesProvider: FC<
       //   treeData.find(({ parent }) => parent === id) ? `${id}/` : `/${id}`
       // );
 
-      console.log('childrennnnnnnnnnnnn', childrenOfDir);
       childrenOfDir.forEach((child) => {
-        console.log('child', child);
         children.push(buildPath(child, arr));
         if (child.id !== '/' && child.id !== dir) {
           // Only call the function recursively if the child has a parent
@@ -112,10 +108,9 @@ export const SandpackFilesProvider: FC<
         sandpack.deleteFile(`${dirId}`);
         delete sandpackFilesCopy[dirId];
         // delete all children of dir
-        console.log('treedata', treeData, parentId, sandpack.files);
+
         const childrenOfDir = getAllChildrenOfDir(parentId, treeData);
 
-        console.log('children of dir', childrenOfDir, sandpack.files);
         childrenOfDir.forEach((child) => {
           sandpack.deleteFile(`/${child}`);
           delete sandpackFilesCopy[`/${child}`];
@@ -126,12 +121,7 @@ export const SandpackFilesProvider: FC<
     });
     await Promise.all(deleteFilePromises);
     const newFiles = deleteKeys(sandpackFilesCopy, files);
-    console.log(
-      'NEW FILES',
 
-      newFiles,
-      toHierarchicalArray(directoryFileMap(newFiles))
-    );
     setTreeData(toHierarchicalArray(directoryFileMap(newFiles)));
   };
 
@@ -168,10 +158,10 @@ export const SandpackFilesProvider: FC<
       );
       // Just add temp nodes to display input fields in tree
       setTreeData(newTree);
-      console.log('NEW TREE', newTree, files);
+
       const key = Object.keys(files)[0].substring(1);
       const directoryIds = getAllParentDirs({ childId: key, tree: newTree });
-      console.log('directory ids', directoryIds);
+
       setOpenDirs((prev) => Array.from(new Set([...prev, ...directoryIds])));
     }
   };
@@ -183,10 +173,9 @@ export const SandpackFilesProvider: FC<
     childId: string;
     tree: Item[];
   }) => {
-    console.log('called  with child id', childId);
     const ids: string[] = [];
     const itemParent = tree.find(({ id }) => id === childId)?.parent;
-    console.log('item parent', itemParent);
+
     if (!itemParent || itemParent === '/') {
       return ids;
     }
@@ -233,7 +222,6 @@ export const SandpackFilesProvider: FC<
     const currentActiveFile = sandpack.activeFile;
     let newActiveFile = sandpack.activeFile;
     sandpack.visibleFiles.forEach((file) => {
-      console.log('file', file);
       if (movedFileMap[file]) {
         sandpack.openFile(movedFileMap[file]);
         if (currentActiveFile === file) {
@@ -241,7 +229,7 @@ export const SandpackFilesProvider: FC<
         }
       }
     });
-    console.log('new active file', newActiveFile);
+
     sandpack.setActiveFile(newActiveFile);
   };
 
@@ -252,7 +240,7 @@ export const SandpackFilesProvider: FC<
         filesCopy[fileMap[file]] = filesCopy[file];
       }
     }
-    console.log('filemap', fileMap);
+
     const deleteFilePromises = Object.keys(fileMap).map((key) => {
       if (filesCopy[key]) {
         delete filesCopy[key];

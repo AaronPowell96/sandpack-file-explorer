@@ -31,7 +31,7 @@ export const FileTreeExplorer = () => {
     setOpenDirs,
   } = useSandpackFiles();
   const { sandpack } = useSandpack();
-  console.log('treedata', treeData);
+
   const immoveablePaths = ['/package.json'];
   const handleDrop = async (
     newTreeData: NodeModel<{
@@ -39,7 +39,6 @@ export const FileTreeExplorer = () => {
     }>[],
     node: DropOptions<{ path: string }>
   ) => {
-    console.log('DROPPPPPP', node, newTreeData);
     const entryFile = getEntryFile(sandpack.files);
 
     const path = `/${buildPath(
@@ -50,9 +49,7 @@ export const FileTreeExplorer = () => {
       newTreeData as Item[]
     )}`;
 
-    console.log('PATHHHHHHHHH', path, sandpack.files[path]);
     if (sandpack.files[path]) {
-      console.log('FILE ALREADY EXISTS CANNOT MOVE', path);
     }
     if (
       [...immoveablePaths, entryFile].includes(
@@ -156,7 +153,7 @@ export const FileTreeExplorer = () => {
                           .split('/')
                           .slice(0, -1)
                           .join('/');
-                        console.log('ADDDINGGGG', `${newPath}/${fileName}`);
+
                         const path = `${newPath}/${fileName}`;
                         await addFile({
                           [path]: {

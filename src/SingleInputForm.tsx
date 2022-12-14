@@ -20,12 +20,10 @@ export const SingleInputForm = ({
   const [error, setError] = useState(false);
   useEffect(() => {
     if (value) {
-      console.log('VALUE CHANGED', currentPath, value, files);
       if (
         files[`${currentPath}/${value}`] ||
         files[`${currentPath}/${value}/`]
       ) {
-        console.log('ERRRORRRR INPUT');
         setError(true);
         // a file or dir with "value" already exists, do not add it
       } else {
@@ -71,7 +69,7 @@ export const SingleInputForm = ({
     }
     if (event.key === 'Escape') {
       event.preventDefault();
-      console.log((event.target as HTMLInputElement).value);
+
       handleBlur();
     }
   };

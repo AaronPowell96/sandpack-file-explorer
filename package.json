@@ -32,7 +32,8 @@
     "storybook-docs": "start-storybook --docs --no-manager-cache",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
-    "release": "yarn release-it"
+    "release": "yarn release-it",
+    "remove-logs": "node remove-console-logs.js && yarn lint:fix"
   },
   "tsup": {
     "entry": [

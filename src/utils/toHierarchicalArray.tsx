@@ -5,7 +5,6 @@ export const toHierarchicalArray = (
   parentId = '/',
   arr: any[] = []
 ): any[] => {
-  console.log('Called', obj);
   for (let key in obj) {
     if (obj.hasOwnProperty(key)) {
       const text = key;
@@ -30,7 +29,7 @@ export const toHierarchicalArray = (
         },
         droppable: false,
       };
-      // console.log(item);
+
       if (typeof obj[key] === 'object' && obj[key] !== null) {
         item.droppable = true;
         arr.push(item);
