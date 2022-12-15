@@ -1,6 +1,6 @@
 # Sandpack File Explorer
 
-An enhanced drop in replacement for [Sandpack]() file explorer. Providing immense flexibility to sandpack's capabilities.
+An enhanced drop in replacement for Sandpack's [FileExplorer](https://github.com/codesandbox/sandpack/tree/main/sandpack-react/src/components/FileExplorer). Providing immense flexibility to sandpack's capabilities.
 
 - Add and remove files or directories,
 - Drag and drop to move files or directories,
