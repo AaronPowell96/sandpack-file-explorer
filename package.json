@@ -30,7 +30,7 @@
     "commit": "cz",
     "storybook": "storybook dev -p 6006 --quiet",
     "build-storybook": "storybook build",
-    "deploy-storybook": "storybook-to-ghpages -o=storybook-static --source-branch=main",
+    "deploy-storybook": "storybook-to-ghpages --source-branch=main",
     "release": "yarn release-it",
     "remove-logs": "node remove-console-logs.js && yarn lint:fix"
   },
