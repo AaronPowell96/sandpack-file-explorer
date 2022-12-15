@@ -6,22 +6,24 @@ export {
   SandpackFilesProvider,
 } from './SandpackFilesProvider';
 
-export const SandpackFileTree = () => <FileTreeExplorer />;
+export const SandpackFileTree = () => (
+  <div
+    style={{
+      minWidth: 150,
+      maxWidth: '300px',
+      overflow: 'hidden',
+    }}
+  >
+    <FileTreeExplorer />
+  </div>
+);
 
 type Props = {
   onMoveFile?: ((fileMap: Record<string, string>) => void) | undefined;
 };
 export const SandpackFileExplorer = (props: Props) => (
   <SandpackFilesProvider {...props}>
-    <div
-      style={{
-        minWidth: 150,
-        maxWidth: '300px',
-        overflow: 'hidden',
-      }}
-    >
-      <FileTreeExplorer />
-    </div>
+    <SandpackFileTree />
   </SandpackFilesProvider>
 );
 

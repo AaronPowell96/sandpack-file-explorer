@@ -91,6 +91,7 @@ export const FileTreeExplorer = () => {
             display: 'flex',
             flexDirection: 'column',
             padding: `var(--sp-space-1) var(--sp-space-3)`,
+            backgroundColor: `var(--sp-colors-surface1, #011627)`,
           }}
         >
           <div

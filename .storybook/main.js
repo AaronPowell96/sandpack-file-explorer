@@ -1,17 +1,21 @@
 // .storybook/main.js|ts
-
+const path = require('path');
 const { mergeConfig } = require('vite');
-
 module.exports = {
-  stories: [
-    '../stories',
-    '../stories/**/*.stories.mdx',
-    '../stories/**/*.stories.@(js|jsx|ts|tsx)',
+  stories: ['../stories'],
+  addons: [
+    '@storybook/addon-essentials',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        loaderOptions: {
+          prettierConfig: { printWidth: 80, singleQuote: false },
+          injectStoryParameters: false,
+        },
+      },
+    },
   ],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-docs'],
-  core: {
-    builder: '@storybook/builder-vite',
-  },
+  core: {},
   async viteFinal(config, { configType }) {
     if (configType === 'DEVELOPMENT') {
       // Your development configuration goes here
@@ -22,5 +26,11 @@ module.exports = {
     return mergeConfig(config, {
       // Your environment configuration here
     });
+  },
+  framework: {
+    name: '@storybook/react-vite',
+    options: {
+      fastRefresh: true,
+    },
   },
 };

@@ -1,13 +1,4 @@
-import { addParameters } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
-
-addParameters({
-  docs: {
-    container: DocsContainer,
-    page: DocsPage,
-    isCodeExpanded: true,
-  },
-});
 
 export const parameters = {
   layout: 'fullscreen',
@@ -15,4 +6,9 @@ export const parameters = {
   source: { expanded: true },
   viewMode: 'docs',
   actions: { argTypesRegex: '^on.*' },
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+    isCodeExpanded: true,
+  },
 };

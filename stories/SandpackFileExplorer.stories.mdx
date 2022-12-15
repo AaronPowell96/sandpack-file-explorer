@@ -1,0 +1,84 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { SandpackFileExplorer } from '../src';
+import {
+  SandpackCodeEditor,
+  SandpackPreview,
+  SandpackProvider,
+  SandpackStack,
+  SandpackThemeProvider,
+} from '@codesandbox/sandpack-react';
+import { nightOwl } from '@codesandbox/sandpack-themes';
+
+<Meta title="SandpackFileExplorer" component={SandpackFileExplorer} />
+
+# SandpackFileExplorer
+
+`<SandpackFileExplorer/>` is a drop in replacement for Sandpack's `<FileExplorer/>`.
+Use it in the same way and enjoy all the extra functionality!
+
+- Drag and drop
+- File and Directory creation
+- File and Directory deletion
+
+## The explorer
+
+<Canvas
+  style={{
+    border: 'none',
+  }}
+>
+  <Story name="Standalone">
+    <SandpackProvider theme={nightOwl} template="react-ts">
+      <SandpackFileExplorer />
+    </SandpackProvider>
+  </Story>
+</Canvas>
+
+## Complete with CodeEditor
+
+<Canvas
+  style={{
+    border: 'none',
+  }}
+>
+  <Story name="Complete">
+    <SandpackProvider theme={nightOwl} template="react-ts">
+      <SandpackStack>
+        <div
+          style={{
+            display: 'flex',
+            width: '100%',
+            minHeight: '300px',
+            maxHeight: '300px',
+          }}
+        >
+          <div
+            style={{
+              minWidth: '150px',
+              maxWidth: '300px',
+              overflow: 'hidden',
+            }}
+          >
+            <SandpackFileExplorer />
+          </div>
+          <div style={{ flex: 'min-content' }}>
+            <SandpackCodeEditor
+              wrapContent
+              style={{
+                minHeight: '100%',
+                maxHeight: '100%',
+                overflow: 'auto',
+              }}
+              showTabs
+              closableTabs
+              showInlineErrors
+              showLineNumbers
+            />
+          </div>
+        </div>
+        <SandpackPreview />
+      </SandpackStack>
+    </SandpackProvider>
+  </Story>
+</Canvas>

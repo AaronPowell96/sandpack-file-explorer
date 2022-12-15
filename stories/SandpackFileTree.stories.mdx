@@ -1,0 +1,93 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { SandpackFileTree, SandpackFilesProvider } from '../src';
+import {
+  SandpackCodeEditor,
+  SandpackPreview,
+  SandpackProvider,
+  SandpackStack,
+  SandpackThemeProvider,
+} from '@codesandbox/sandpack-react';
+import { nightOwl } from '@codesandbox/sandpack-themes';
+
+<Meta title="SandpackFileTree" component={SandpackFileTree} />
+
+# SandpackFileTree
+
+**_If you are looking to simply drop the file tree and go use `<SandpackFileExplorer/>`._**
+
+`<SandpackFileTree/>` is a granular way to control your files used in combination with with `<SandpackFilesProvider>`.
+You can:
+
+- Access SandpackFileTree context via `useSandpackFiles()`,
+- Add / Delete files programatically,
+- Watch for files being moved,
+- Access and mutate the tree directly (Make sure to handle sandpack.files if you do this)
+  Use it in the same way and enjoy all the extra functionality!
+- Power over how high you wrap the files provider, meaning your components can directly control the file tree from "outside".
+
+## The explorer
+
+<Canvas
+  style={{
+    border: 'none',
+  }}
+>
+  <Story name="Standalone">
+    <SandpackProvider theme={nightOwl} template="react-ts">
+      <SandpackFilesProvider>
+        <SandpackFileTree />
+      </SandpackFilesProvider>
+    </SandpackProvider>
+  </Story>
+</Canvas>
+
+## Complete with CodeEditor
+
+<Canvas
+  style={{
+    border: 'none',
+  }}
+>
+  <Story name="Complete">
+    <SandpackProvider theme={nightOwl} template="react-ts">
+      <SandpackStack>
+        <div
+          style={{
+            display: 'flex',
+            width: '100%',
+            minHeight: '300px',
+            maxHeight: '300px',
+          }}
+        >
+          <div
+            style={{
+              minWidth: '150px',
+              maxWidth: '300px',
+              overflow: 'hidden',
+            }}
+          >
+            <SandpackFilesProvider>
+              <SandpackFileTree />
+            </SandpackFilesProvider>
+          </div>
+          <div style={{ flex: 'min-content' }}>
+            <SandpackCodeEditor
+              wrapContent
+              style={{
+                minHeight: '100%',
+                maxHeight: '100%',
+                overflow: 'auto',
+              }}
+              showTabs
+              closableTabs
+              showInlineErrors
+              showLineNumbers
+            />
+          </div>
+        </div>
+        <SandpackPreview />
+      </SandpackStack>
+    </SandpackProvider>
+  </Story>
+</Canvas>
