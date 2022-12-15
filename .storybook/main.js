@@ -1,5 +1,4 @@
 // .storybook/main.js|ts
-const path = require('path');
 const { mergeConfig } = require('vite');
 module.exports = {
   stories: ['../stories'],
@@ -24,6 +23,9 @@ module.exports = {
       // Your production configuration goes here.
     }
     return mergeConfig(config, {
+      optimizeDeps: {
+        include: ['@storybook/addon-essentials/preview.js'],
+      },
       // Your environment configuration here
     });
   },

@@ -29,9 +29,8 @@
     "prepare": "husky install",
     "commit": "cz",
     "storybook": "storybook dev -p 6006 --quiet",
-    "storybook-docs": "start-storybook --docs --no-manager-cache",
     "build-storybook": "storybook build",
-    "deploy-storybook": "storybook-to-ghpages",
+    "deploy-storybook": "storybook-to-ghpages -o=storybook-static --source-branch=main",
     "release": "yarn release-it",
     "remove-logs": "node remove-console-logs.js && yarn lint:fix"
   },
