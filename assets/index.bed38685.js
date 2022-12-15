@@ -1,0 +1,2 @@
+import{R as r}from"./index.bb1adda2.js";import{j as u}from"./chunk-MA2MUXQN.28757a0f.js";const s=r.createContext({});function m(t){return n;function n(e){const o=a(e.components);return u(t,{...e,allComponents:o})}}function a(t){const n=r.useContext(s);return r.useMemo(()=>typeof t=="function"?t(n):{...n,...t},[n,t])}const i={};function C({components:t,children:n,disableParentContext:e}){let o=a(t);return e&&(o=t||i),u(s.Provider,{value:o,children:n})}export{s as M,C as a,a as u,m as w};
+//# sourceMappingURL=index.bed38685.js.map

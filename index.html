@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>@storybook/cli - Storybook</title>
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="./sb-preview/runtime.mjs" rel="preload" as="script">
+
+      
+
+    <style>
+      #storybook-root[hidden]{
+        display: none !important;
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    <div id="root"></div>
+
+    
+    <script>
+      
+        
+          window['FEATURES'] = {
+  "warnOnLegacyHierarchySeparator": true,
+  "buildStoriesJson": false,
+  "storyStoreV7": true,
+  "breakingChangesV7": true,
+  "interactionsDebugger": false,
+  "argTypeTargetsV7": true
+};
+        
+      
+        
+          window['REFS'] = {};
+        
+      
+        
+          window['LOGLEVEL'] = "info";
+        
+      
+        
+          window['DOCS_OPTIONS'] = {
+  "enabled": true,
+  "defaultName": "Docs",
+  "docsPage": true
+};
+        
+      
+        
+          window['CONFIG_TYPE'] = "PRODUCTION";
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </script>
+    
+
+    <script type="module">
+      import './sb-manager/runtime.mjs';
+
+      
+      import '././sb-addons/controls/manager.mjs';
+      
+      import '././sb-addons/actions/manager.mjs';
+      
+      import '././sb-addons/backgrounds/manager.mjs';
+      
+      import '././sb-addons/viewport/manager.mjs';
+      
+      import '././sb-addons/toolbars/manager.mjs';
+      
+      import '././sb-addons/measure/manager.mjs';
+      
+      import '././sb-addons/outline/manager.mjs';
+      
+    </script>    
+  </body>
+</html>
