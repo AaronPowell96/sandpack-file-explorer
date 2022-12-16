@@ -8,6 +8,12 @@ An enhanced drop in replacement for Sandpack's [FileExplorer](https://github.com
 - Works out of the box with all of Sandpack's templates.
 - Comes with default protection of the entry file (derived from package.json)
 
+
+
+https://user-images.githubusercontent.com/17838632/208105414-5c7457bd-3bdc-4f24-b710-c152eb60d991.mov
+
+
+
 ## Installation
 
 ```console
