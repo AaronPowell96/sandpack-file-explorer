@@ -1,7 +1,7 @@
 {
   "name": "sandpack-file-explorer",
   "description": "A file explorer for Codesandbox's 'sandpack' code editor",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Aaron Powell",
   "license": "MIT",
   "keywords": [
