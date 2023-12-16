@@ -1,0 +1,2 @@
+import{R as r}from"./index.dd3c9cc9.js";import{j as u}from"./chunk-MA2MUXQN.08b5d9ce.js";const s=r.createContext({});function m(t){return n;function n(e){const o=a(e.components);return u(t,{...e,allComponents:o})}}function a(t){const n=r.useContext(s);return r.useMemo(()=>typeof t=="function"?t(n):{...n,...t},[n,t])}const i={};function C({components:t,children:n,disableParentContext:e}){let o=a(t);return e&&(o=t||i),u(s.Provider,{value:o,children:n})}export{s as M,C as a,a as u,m as w};
+//# sourceMappingURL=index.6efeb736.js.map
