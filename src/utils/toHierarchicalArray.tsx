@@ -26,6 +26,7 @@ export const toHierarchicalArray = (
         text: text,
         data: {
           path: `/${builtPath}`,
+          hidden: obj[key],
         },
         droppable: false,
       };
