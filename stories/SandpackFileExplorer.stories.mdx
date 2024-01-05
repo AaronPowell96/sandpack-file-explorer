@@ -43,7 +43,11 @@ Use it in the same way and enjoy all the extra functionality!
   }}
 >
   <Story name="Complete">
-    <SandpackProvider theme={nightOwl} template="react-ts">
+    <SandpackProvider
+      theme={nightOwl}
+      template="react-ts"
+      files={{ '/hidden.tsx': { code: '// hidden.tsx', hidden: true } }}
+    >
       <SandpackStack>
         <div
           style={{

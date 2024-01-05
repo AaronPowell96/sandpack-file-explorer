@@ -74,6 +74,11 @@ export const FileTreeExplorer = () => {
     setTreeData(newTreeData);
   };
 
+  const isHiddenFile = (node) => {
+    if (!node.text) return true;
+    if (node.data.hidden && !node.droppable) return true;
+  };
+
   const entryFile = getEntryFile(sandpack.files);
 
   return (
@@ -124,7 +129,7 @@ export const FileTreeExplorer = () => {
             // onChangeOpen={(e) => setOpenDirs(e as string[])}
             // initialOpen={openDirs} //treeData.map(({ id }) => id)}
             render={(node, { depth, isOpen }) =>
-              !node.text ? (
+              isHiddenFile(node) ? (
                 <></>
               ) : (
                 <div
